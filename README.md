@@ -103,10 +103,18 @@ docker compose logs -f backend
 docker compose logs -f frontend
 ```
 
-### Rebuild Images (Development)
+### Build Images (Development)
 
 ```bash
+# Build images without starting services
+docker compose --profile dev build
+
+# Build and start services
 docker compose --profile dev up --build
+
+# Build specific service
+docker compose build backend-dev
+docker compose build frontend-dev
 ```
 
 ### Clean Up
