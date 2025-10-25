@@ -1,7 +1,7 @@
 services:
   # Production backend (using GitHub image)
   backend:
-    image: ghcr.io/bbq-gmbh/backend:latest
+    image: ghcr.io/bbq-gmbh/backend:sha-74f0db1
     profiles: ["production"]
     ports:
       - "3001:3001"
@@ -40,7 +40,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      BACKEND_URL: http://localhost:3001
+      BACKEND_URL: http://backend:3001
     depends_on:
       - backend
 
