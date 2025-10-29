@@ -1,5 +1,5 @@
 include:
-  - db.yml
+  - database.yml
 
 services:
   # Production backend (using GitHub image)
@@ -23,9 +23,17 @@ services:
   frontend:
     image: ghcr.io/bbq-gmbh/frontend2:latest
     profiles: ["prod"]
-    ports:
-      - "3000:3000"
     environment:
       BACKEND_URL: http://backend:3001
     depends_on:
       - backend
+
+  # Nginx reverse proxy
+  nginx:
+    build: ./nginx
+    profiles: ["prod"]
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - frontend
