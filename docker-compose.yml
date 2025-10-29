@@ -6,7 +6,6 @@ services:
   backend:
     image: ghcr.io/bbq-gmbh/backend:latest
     profiles: ["prod"]
-    platform: linux/arm64
     ports:
       - "3001:3001"
     environment:
