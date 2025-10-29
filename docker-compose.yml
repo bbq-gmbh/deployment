@@ -27,6 +27,7 @@ services:
     environment:
       BACKEND_URL: http://backend:3001
       HOST: ${HOST}
+      __VITE_ADDITIONAL_SERVER_ALLOWED_HOSTS: ${HOST}
     depends_on:
       - backend
 
