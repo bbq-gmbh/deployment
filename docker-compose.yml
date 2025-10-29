@@ -1,26 +1,12 @@
+include:
+  - db.yml
+
 services:
   # Production backend (using GitHub image)
   backend:
-    image: ghcr.io/bbq-gmbh/backend:sha-74f0db1
-    profiles: ["production"]
-    ports:
-      - "3001:3001"
-    environment:
-      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/fs-backend
-      JWT_SECRET_KEY: ${JWT_SECRET_KEY:-secret}
-      JWT_ALGORITHM: HS256
-      ACCESS_TOKEN_EXPIRE_MINUTES: 30
-      REFRESH_TOKEN_EXPIRE_DAYS: 7
-    depends_on:
-      postgres:
-        condition: service_healthy
-
-  # Development backend (local build)
-  backend-dev:
-    build:
-      context: ../backend
-      dockerfile: Dockerfile
-    profiles: ["dev"]
+    image: ghcr.io/bbq-gmbh/backend:latest
+    profiles: ["prod"]
+    platform: linux/arm64
     ports:
       - "3001:3001"
     environment:
@@ -36,42 +22,10 @@ services:
   # Production frontend (using GitHub image)
   frontend:
     image: ghcr.io/bbq-gmbh/frontend2:latest
-    profiles: ["production"]
+    profiles: ["prod"]
     ports:
       - "3000:3000"
     environment:
       BACKEND_URL: http://backend:3001
     depends_on:
       - backend
-
-  # Development frontend (local build)
-  frontend-dev:
-    build:
-      context: ../frontend
-      dockerfile: Dockerfile
-    profiles: ["dev"]
-    ports:
-      - "3000:3000"
-    environment:
-      BACKEND_URL: http://localhost:3001
-    depends_on:
-      - backend-dev
-
-  postgres:
-    image: postgres:16-alpine
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: fs-backend
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
-
-volumes:
-  postgres_data:
