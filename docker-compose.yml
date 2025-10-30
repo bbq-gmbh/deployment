@@ -23,12 +23,11 @@ services:
     image: ghcr.io/bbq-gmbh/frontend2:latest
     profiles: ["prod"]
     env_file:
-      - ./.env
+      - .env
     environment:
       BACKEND_URL: http://backend:3001
+      HOST: 0.0.0.0
       ORIGIN: ${ORIGIN}
-      HOST: ${HOST}
-      __VITE_ADDITIONAL_SERVER_ALLOWED_HOSTS: ${HOST}
     depends_on:
       - backend
 
@@ -37,7 +36,7 @@ services:
     build: ./nginx
     profiles: ["prod"]
     env_file:
-      - ./.env
+      - .env
     environment:
       - HOST
     ports:
