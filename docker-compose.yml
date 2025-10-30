@@ -38,7 +38,8 @@ services:
     env_file:
       - .env
     environment:
-      - HOST
+      SEED: ${SEED}
+      HOST: ${HOST}
     ports:
       - "80:80"
       - "443:443"

@@ -23,7 +23,7 @@ if [ ! -f /etc/nginx/certs/nginx-selfsigned.crt ]; then
     openssl req -x509 -nodes -days 365 ${rand_opt} -newkey rsa:2048 \
         -keyout /etc/nginx/certs/nginx-selfsigned.key \
         -out /etc/nginx/certs/nginx-selfsigned.crt \
-        -subj "/C=US/ST=New York/L=New York/O=Global Security/OU=IT Department/CN=${HOST}"
+        -subj "/C=DE/ST=Stuttgart/L=Stuttgart/O=Fallstudie/OU=IT Department/CN=${HOST}"
 
     # Remove temporary seedfile if we created one
     if [ -n "${seedfile}" ] && [ -f "${seedfile}" ]; then
