@@ -20,6 +20,21 @@ winget install --id=Docker.DockerDesktop -e
 
 https://www.docker.com/products/docker-desktop/
 
+## Scripts
+
+**Windows (PowerShell):**
+1. `.\clone_repositories.ps1`
+2. `docker compose up --build`
+
+**Windows (Batch):**
+1. `clone_repositories.bat`
+2. `docker compose up --build`
+
+**Linux/MacOS:**
+1. `chmod +x ./clone_repositories.sh`
+2. `./clone_repositories.sh`
+3. `docker compose up --build`
+
 ## Schnellstart
 
 ### 1. Repositories klonen
