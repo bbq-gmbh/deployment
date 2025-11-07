@@ -30,7 +30,6 @@ services:
   # Nginx reverse proxy
   nginx:
     build: ./nginx
-    profiles: ["prod"]
     env_file:
       - .env
     environment:
