@@ -1,5 +1,7 @@
 # Lokales Setup
 
+Beim Öffnen des Terminals stellen Sie sicher, dass Sie genau in diesem Folder drinnen sind (`local/`) 
+
 ## Scripts
 
 (Siehe *Benötigte Dependencies* unten als erstes)
