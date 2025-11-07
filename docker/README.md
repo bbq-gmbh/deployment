@@ -25,7 +25,7 @@ https://www.docker.com/products/docker-desktop/
 ### 1. Repositories klonen
 
 ```bash
-.\clone_repositories.sh
+./clone_repositories.sh
 ```
 
 ### 2. Starten
