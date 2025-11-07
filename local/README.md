@@ -4,15 +4,18 @@
 
 (Siehe *Benötigte Dependencies* unten als erstes)
 
-**Windows:**
+**Windows (PowerShell):**
+1. `.\setup.ps1`
+2. `.\start.ps1`
 
-
+**Windows (Batch):**
+1. `setup.bat`
+2. `start.bat`
 
 **Linux/MacOS:**
-
-0. `chmod +x ./setup.sh ./start.sh`
-1. [`./setup.sh`](./setup.sh)
-2. [`./start.sh`](./start.sh)
+1. `chmod +x ./setup.sh ./start.sh`
+2. `./setup.sh`
+3. `./start.sh`
 
 
 ## Benötigte Dependencies
