@@ -2,10 +2,8 @@ include:
   - database.yml
 
 services:
-  # Production backend (using GitHub image)
-  backend:
-    image: ghcr.io/bbq-gmbh/backend:latest
-    profiles: ["prod"]
+  backend-git:
+    build: ./git/backend
     ports:
       - "3001:3001"
     environment:
@@ -18,10 +16,8 @@ services:
       postgres:
         condition: service_healthy
 
-  # Production frontend (using GitHub image)
-  frontend:
-    image: ghcr.io/bbq-gmbh/frontend2:latest
-    profiles: ["prod"]
+  frontend-git:
+    build: ./git/frontend
     env_file:
       - .env
     environment:
@@ -45,3 +41,6 @@ services:
       - "443:443"
     depends_on:
       - frontend
+
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
