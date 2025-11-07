@@ -12,3 +12,6 @@
 
 ## Lokales Setup
 
+#### Siehe **[LOCAL SETUP](local/README.md)**
+
+`local/`
