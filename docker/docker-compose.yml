@@ -2,7 +2,7 @@ include:
   - database.yml
 
 services:
-  backend-git:
+  backend:
     build: ./git/backend
     ports:
       - "3001:3001"
@@ -16,7 +16,7 @@ services:
       postgres:
         condition: service_healthy
 
-  frontend-git:
+  frontend:
     build: ./git/frontend
     env_file:
       - .env
