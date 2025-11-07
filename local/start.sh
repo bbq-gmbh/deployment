@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd "$(dirname "$0")"
+
 current_dir=$(pwd)
 
 # check if uv exists
