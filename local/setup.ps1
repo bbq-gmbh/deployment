@@ -17,12 +17,26 @@ if (-not (Test-Path "git")) {
     New-Item -ItemType Directory -Path "git" | Out-Null
 }
 
-# Clone repositories
-Write-Host "Cloning backend..." -ForegroundColor Green
-git clone https://github.com/bbq-gmbh/backend ./git/backend
+# Clone or update repositories
+if (Test-Path "./git/backend") {
+    Write-Host "Backend repository exists. Pulling latest changes..." -ForegroundColor Green
+    Set-Location "./git/backend"
+    git pull
+    Set-Location "../.."
+} else {
+    Write-Host "Cloning backend..." -ForegroundColor Green
+    git clone https://github.com/bbq-gmbh/backend ./git/backend
+}
 
-Write-Host "Cloning frontend..." -ForegroundColor Green
-git clone https://github.com/bbq-gmbh/frontend2 ./git/frontend
+if (Test-Path "./git/frontend") {
+    Write-Host "Frontend repository exists. Pulling latest changes..." -ForegroundColor Green
+    Set-Location "./git/frontend"
+    git pull
+    Set-Location "../.."
+} else {
+    Write-Host "Cloning frontend..." -ForegroundColor Green
+    git clone https://github.com/bbq-gmbh/frontend2 ./git/frontend
+}
 
 # Setup backend
 Write-Host "Setting up backend..." -ForegroundColor Green

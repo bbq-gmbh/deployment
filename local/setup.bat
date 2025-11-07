@@ -18,12 +18,26 @@ if errorlevel 1 (
 REM Create git directory
 if not exist "git" mkdir git
 
-REM Clone repositories
-echo Cloning backend...
-git clone https://github.com/bbq-gmbh/backend ./git/backend
+REM Clone or update repositories
+if exist ".\git\backend" (
+    echo Backend repository exists. Pulling latest changes...
+    cd .\git\backend
+    git pull
+    cd ..\..
+) else (
+    echo Cloning backend repository...
+    git clone https://github.com/bbq-gmbh/backend ./git/backend
+)
 
-echo Cloning frontend...
-git clone https://github.com/bbq-gmbh/frontend2 ./git/frontend
+if exist ".\git\frontend" (
+    echo Frontend repository exists. Pulling latest changes...
+    cd .\git\frontend
+    git pull
+    cd ..\..
+) else (
+    echo Cloning frontend repository...
+    git clone https://github.com/bbq-gmbh/frontend2 ./git/frontend
+)
 
 REM Setup backend
 echo Setting up backend...
