@@ -5,9 +5,9 @@ Beim Öffnen des Terminals stellen Sie sicher, dass Sie genau in diesem Folder d
 ## Voraussetzungen
 
 - **WSL 2** (Windows only)
-  - https://learn.microsoft.com/en-us/windows/wsl/install
-- **Docker Desktop** (Windows/Mac) oder **Docker + Docker Compose** (Linux)
-  - https://www.docker.com/products/docker-desktop
+  - https://learn.microsoft.com/de-de/windows/wsl/install
+- **Docker Desktop** (Windows/Mac/Linux) oder **Docker + Docker Compose** (Linux/Mac)
+  - https://www.docker.com/products/docker-desktop/
 
 Installieren auf **Windows** mithilfe von:
 
@@ -18,7 +18,7 @@ winget install --id=Docker.DockerDesktop -e
 
 **oder**
 
-https://www.docker.com/products/docker-desktop
+https://www.docker.com/products/docker-desktop/
 
 ## Schnellstart
 
